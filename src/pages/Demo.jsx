@@ -6,13 +6,13 @@ const Demo = () => {
   return (
     <Container twClasses={''} FULL={false} pageTitle={'Demo'}>
       <Row twClasses={'prose'}>
-        <h1 className="h1">
+        <h1 className='h1'>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit
         </h1>
-        <h2 className="h2">
+        <h2 className='h2'>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit
         </h2>
-        <h3 className="h3">
+        <h3 className='h3'>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit
         </h3>
         <p>
@@ -33,8 +33,11 @@ const Demo = () => {
           Iure.
         </p>
       </Row>
-      <Row twClasses={'flex flex-wrap'}>
-        <Box>
+      {/* <Row twClasses={'flex flex-wrap justify-between mt-5'}> */}
+      <Row twClasses={'grid grid-auto-fit gap-5 my-5'}>
+        <Box twClasses={'min-w-min p-10 border'}>
+          {/* <Box twClasses={'xl:w-[750px] p-4 border m-2'}> */}
+          {/* <Box twClasses={'w-[48%] p-10 border '}> */}
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
             et, ex eum rem mollitia totam eius ad, sapiente eos maiores
@@ -42,7 +45,9 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box>
+        <Box twClasses={'min-w-min p-10 border'}>
+          {/* <Box twClasses={'xl:w-[750px] p-4 border m-2'}> */}
+          {/* <Box twClasses={'w-[48%] p-10 border '}> */}
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
             et, ex eum rem mollitia totam eius ad, sapiente eos maiores
@@ -51,12 +56,12 @@ const Demo = () => {
           </p>
         </Box>
       </Row>
-      <Row twClasses={'flex flex-wrap'}>
-        <Box twClasses={'w-80 p-5'}>
+      <Row twClasses={'flex flex-wrap justify-between'}>
+        <Box twClasses={'min-w-min p-5 my-5 border'}>
           <img
-            src="https://picsum.photos/id/12/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/12/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -65,11 +70,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'w-80 p-5'}>
+        <Box twClasses={'min-w-min p-5 my-5 border'}>
           <img
-            src="https://picsum.photos/id/16/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/16/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -78,11 +83,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'w-80 p-5'}>
+        <Box twClasses={'min-w-min p-5 my-5 border'}>
           <img
-            src="https://picsum.photos/id/15/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/15/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, id
           exercitationem ratione, consequatur earum accusamus at vero magni
@@ -95,11 +100,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'w-80 p-5'}>
+        <Box twClasses={'min-w-min p-5 my-5 border'}>
           <img
-            src="https://picsum.photos/id/61/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/61/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -151,14 +156,14 @@ const Demo = () => {
       </Row>
       <Row
         twClasses={
-          'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1'
+          'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3'
         }
       >
-        <Box twClasses={'p-3'}>
+        <Box twClasses={'p-3 border shadow-lg'}>
           <img
-            src="https://picsum.photos/id/62/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/62/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -167,11 +172,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'p-3'}>
+        <Box twClasses={'p-3 border shadow-lg'}>
           <img
-            src="https://picsum.photos/id/63/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/63/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -180,11 +185,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'p-3'}>
+        <Box twClasses={'p-3 border shadow-lg'}>
           <img
-            src="https://picsum.photos/id/64/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/64/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -193,11 +198,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'p-3'}>
+        <Box twClasses={'p-3 border shadow-lg'}>
           <img
-            src="https://picsum.photos/id/65/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/65/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -206,11 +211,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'p-3'}>
+        <Box twClasses={'p-3 border shadow-lg'}>
           <img
-            src="https://picsum.photos/id/66/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/66/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -219,11 +224,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'p-3'}>
+        <Box twClasses={'p-3 border shadow-lg'}>
           <img
-            src="https://picsum.photos/id/67/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/67/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -236,12 +241,12 @@ const Demo = () => {
       <Row twClasses={'min-w-full text-center prose my-5'}>
         <h2>Tailwind Grid with Plugin</h2>
       </Row>
-      <Row twClasses={'grid gap-3 grid-auto-fit p-3'}>
-        <Box twClasses={'p-3'}>
+      <Row twClasses={'grid gap-5 grid-auto-fit p-3'}>
+        <Box twClasses={'p-10 border border-cyan-300 shadow-xl'}>
           <img
-            src="https://picsum.photos/id/62/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/62/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -250,11 +255,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'p-3'}>
+        <Box twClasses={'p-10 border border-cyan-300 shadow-xl'}>
           <img
-            src="https://picsum.photos/id/63/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/63/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -263,11 +268,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'p-3'}>
+        <Box twClasses={'p-10 border border-cyan-300 shadow-xl'}>
           <img
-            src="https://picsum.photos/id/64/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/64/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -276,11 +281,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'p-3'}>
+        <Box twClasses={'p-10 border border-cyan-300 shadow-xl'}>
           <img
-            src="https://picsum.photos/id/65/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/65/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -289,11 +294,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'p-3'}>
+        <Box twClasses={'p-10 border border-cyan-300 shadow-xl'}>
           <img
-            src="https://picsum.photos/id/66/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/66/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
@@ -302,11 +307,11 @@ const Demo = () => {
             quo. Iure.
           </p>
         </Box>
-        <Box twClasses={'p-3'}>
+        <Box twClasses={'p-10 border border-cyan-300 shadow-xl'}>
           <img
-            src="https://picsum.photos/id/67/350/300"
-            className="mb-3 min-w-full rounded-full"
-            alt=""
+            src='https://picsum.photos/id/67/350/300'
+            className='mb-3 min-w-full rounded-full'
+            alt=''
           />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus

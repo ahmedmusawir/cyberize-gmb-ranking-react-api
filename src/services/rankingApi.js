@@ -17,8 +17,10 @@ export const rankingApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getLocalRanking: builder.query({
-      query: (placeId, query) =>
-        makeApiCall(`/grid?place_id=${placeId}&query=${query}`),
+      query: ({ placeId, query, lat, lng }) =>
+        makeApiCall(
+          `/grid?place_id=${placeId}&query=${query}&lat=${lat}&lng=${lng}&grid_size=3&radius=1&zoom=13`
+        ),
     }),
   }),
 });
@@ -26,6 +28,8 @@ export const rankingApi = createApi({
 export const { useGetLocalRankingQuery } = rankingApi;
 
 // RAPID API CODE SNIPPET FOR LOCAL RANK TRACKER
+
+// "url": "https://local-rank-tracker.p.rapidapi.com/grid?place_id=ChIJoejvAr3Mj4ARtHrbKxtAHXI&query=web%20design&lat=37.341759&lng=-121.938314&grid_size=3&radius=1&zoom=13",
 
 // const options = {
 //   method: 'GET',
