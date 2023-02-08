@@ -3,20 +3,8 @@ import { GoogleMap, LoadScript, Autocomplete } from '@react-google-maps/api';
 
 const MyMap = () => {
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
-  const [autocomplete, setAutocomplete] = useState(null);
 
-  const onLoad = (autoC) => setAutocomplete(autoC);
-
-  const onPlaceChanged = () => {
-    if (autocomplete !== null) {
-      console.log(autocomplete.getPlace());
-      setLocation(autocomplete.getPlace());
-    } else {
-      console.log('Autocomplete is not loaded yet!');
-    }
-  };
-
-  const setLocation = (place) => {
+  const onPlaceChanged = (place) => {
     console.log('Place:', place);
     if (place.geometry) {
       setCoordinates({
@@ -33,7 +21,7 @@ const MyMap = () => {
       googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
       libraries={['places']}
     >
-      <Autocomplete onPlaceChanged={onPlaceChanged} onLoad={onLoad}>
+      <Autocomplete onPlaceChanged={onPlaceChanged}>
         <input type='text' placeholder='Enter a location' />
       </Autocomplete>
 
