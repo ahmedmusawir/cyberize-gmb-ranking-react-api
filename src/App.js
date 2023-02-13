@@ -14,10 +14,11 @@ import PageOne from './pages/PageOne';
 import PageTwo from './pages/PageTwo';
 import NotFoundPage from './pages/NotFoundPage';
 import './App.scss';
+import RankingDataTest from './pages/RankingDataTest';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <BrowserRouter>
         <Layout>
           <Header twClasses={'bg-gray-100'}>
@@ -27,11 +28,12 @@ function App() {
           </Header>
           <Main>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/demo" element={<Demo />} />
-              <Route path="/page-one" element={<PageOne />} />
-              <Route path="/page-two" element={<PageTwo />} />
-              <Route path="/*" element={<NotFoundPage />} />
+              <Route path='/' element={<Home />} />
+              <Route path='/demo' element={<Demo />} />
+              <Route path='/page-one' element={<PageOne />} />
+              <Route path='/page-two' element={<PageTwo />} />
+              <Route path='/ranking' element={<RankingDataTest />} />
+              <Route path='/*' element={<NotFoundPage />} />
             </Routes>
           </Main>
           <Footer twClasses={'bg-gray-200'}>

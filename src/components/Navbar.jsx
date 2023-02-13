@@ -34,6 +34,9 @@ const Navbar = ({ twClasses }) => {
             <li>
               <Link to={'/page-two'}>Page Two</Link>
             </li>
+            <li>
+              <Link to={'/ranking'}>Ranking</Link>
+            </li>
           </ul>
         </div>
         <Link to={'/'} className='btn btn-ghost normal-case text-xl'>
@@ -53,6 +56,9 @@ const Navbar = ({ twClasses }) => {
           </li>
           <li>
             <Link to={'/page-two'}>Page Two</Link>
+          </li>
+          <li>
+            <Link to={'/ranking'}>Ranking</Link>
           </li>
         </ul>
       </div>

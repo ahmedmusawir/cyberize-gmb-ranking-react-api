@@ -82,7 +82,7 @@ const HomePage = () => {
             </div>
           </Box>
         </Row>
-        <Row twClasses={'flex flex-wrap h-4/5 mt-5'}>
+        <Row twClasses={'prose flex flex-wrap h-4/5 mt-5'}>
           <Box twClasses={'min-w-full h-full border bg-blue-300'}>
             <GoogleMap
               mapContainerStyle={{ height: '100%', width: '100%' }}
