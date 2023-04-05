@@ -9,8 +9,8 @@ import {
 } from '@react-google-maps/api';
 import { Container, Row, Box } from '../components/';
 // import rankingData from '../data/data-3';
-// import rankingData from '../data/data-3-radius-3';
-import rankingData from '../data/data-5';
+import rankingData from '../data/data-3-radius-3';
+// import rankingData from '../data/data-5';
 // import rankingData from '../data/data-5-radius-5';
 //
 const RankingDataTest = () => {
@@ -22,10 +22,10 @@ const RankingDataTest = () => {
     lng: lngDemo,
   });
 
-  // const center = {
-  //   lat: latDemo,
-  //   lng: lngDemo,
-  // };
+  const center = {
+    lat: latDemo,
+    lng: lngDemo,
+  };
 
   const options = { closeBoxURL: '', enableEventPropagation: true };
 
@@ -33,12 +33,12 @@ const RankingDataTest = () => {
     // console.log('infoBox: ', infoBox);
   };
 
-  // rankingData.data.results.map((location) => {
-  //   console.log('Location Lat', location);
-  //   // console.log('Location Lat', location.lat);
-  //   // console.log('Location Lng', location.lng);
-  //   return location;
-  // });
+  rankingData.data.results.map((location) => {
+    console.log('Location Lat', location);
+    // console.log('Location Lat', location.lat);
+    // console.log('Location Lng', location.lng);
+    return location;
+  });
   return (
     <div>
       <h1>RankingDataTest</h1>
@@ -50,7 +50,7 @@ const RankingDataTest = () => {
           <Box twClasses={'min-w-full h-full border bg-blue-300'}>
             <GoogleMap
               mapContainerStyle={{ height: '80vh', width: '95vw' }}
-              zoom={12}
+              zoom={11}
               center={{ lat: coordinates.lat, lng: coordinates.lng }}
             >
               {rankingData.data.results.map((location) => (

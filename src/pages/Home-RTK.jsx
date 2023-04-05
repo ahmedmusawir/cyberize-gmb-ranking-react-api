@@ -112,8 +112,10 @@ const HomePage = () => {
               height='80'
               width='80'
               radius='9'
-              color='#ea580c'
+              color='tomato'
               ariaLabel='loading'
+              wrapperStyle
+              wrapperClass
             />
           </Row>
         )}

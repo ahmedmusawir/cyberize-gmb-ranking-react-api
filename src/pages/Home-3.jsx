@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Box, RankInfoBox } from '../components';
-import { Audio } from 'react-loader-spinner';
 import './Home.scss';
 import { GoogleMap, LoadScript, Autocomplete } from '@react-google-maps/api';
-import { useLazyGetLocalRankingQuery } from '../services/rankingApi';
 
 const HomePage = () => {
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
   const [placeId, setPlaceId] = useState('');
   const [keyword, setKeyword] = useState(null);
-
-  //RIK QUERY TO BRING LOCAL RANKING API DATA
-  const [getData, { data, isFetching }] = useLazyGetLocalRankingQuery();
 
   // THIS ONE WILL UPDATE THE CURRENT LOCATION AT EVERY REFRESH
   useEffect(() => {
@@ -51,14 +46,6 @@ const HomePage = () => {
 
   const handleApiData = (e) => {
     console.log('Keyword', keyword);
-    console.log('Lat', coordinates.lat);
-    console.log('Lng', coordinates.lng);
-    console.log('Place ID', placeId);
-    const lat = coordinates.lat;
-    const lng = coordinates.lng;
-
-    getData({ placeId, keyword, lat, lng });
-    console.log('Data:', data);
   };
 
   return (
@@ -106,25 +93,19 @@ const HomePage = () => {
             </div>
           </Box>
         </Row>
-        {isFetching && (
-          <Row twClasses={'flex justify-center'}>
-            <Audio
-              height='80'
-              width='80'
-              radius='9'
-              color='#ea580c'
-              ariaLabel='loading'
-            />
-          </Row>
-        )}
         <Row twClasses={'flex flex-wrap h-4/5 mt-5'}>
           <Box twClasses={'min-w-full h-full border bg-blue-300'}>
             <GoogleMap
               mapContainerStyle={{ height: '100%', width: '100%' }}
               zoom={12}
               center={{ lat: coordinates.lat, lng: coordinates.lng }}
+              // center={{ lat: 37.341759, lng: -121.938314 }}
             >
-              {data && <RankInfoBox data={data.data.results} />}
+              <RankInfoBox
+                keyword={keyword}
+                coordinates={coordinates}
+                placeId={placeId}
+              />
             </GoogleMap>
           </Box>
         </Row>

@@ -4,6 +4,7 @@ import { Audio } from 'react-loader-spinner';
 import './Home.scss';
 import { GoogleMap, LoadScript, Autocomplete } from '@react-google-maps/api';
 import { useLazyGetLocalRankingQuery } from '../services/rankingApi';
+import axios from 'axios';
 
 const HomePage = () => {
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
@@ -57,7 +58,34 @@ const HomePage = () => {
     const lat = coordinates.lat;
     const lng = coordinates.lng;
 
-    getData({ placeId, keyword, lat, lng });
+    const options = {
+      method: 'GET',
+      url: 'https://local-rank-tracker.p.rapidapi.com/grid',
+      params: {
+        // place_id: 'ChIJoejvAr3Mj4ARtHrbKxtAHXI',
+        place_id: placeId,
+        query: keyword,
+        lat: coordinates.lat,
+        lng: coordinates.lng,
+        grid_size: '5',
+        radius: '3',
+        zoom: '13',
+      },
+      headers: {
+        'X-RapidAPI-Key': '7fe701ab34mshb5fbb7b29ae9accp1485a6jsna5fab91f7aed',
+        'X-RapidAPI-Host': 'local-rank-tracker.p.rapidapi.com',
+      },
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+
     console.log('Data:', data);
   };
 
@@ -112,8 +140,10 @@ const HomePage = () => {
               height='80'
               width='80'
               radius='9'
-              color='#ea580c'
+              color='tomato'
               ariaLabel='loading'
+              wrapperStyle
+              wrapperClass
             />
           </Row>
         )}

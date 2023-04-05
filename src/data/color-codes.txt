@@ -1,0 +1,11 @@
+There are the color codes for circle backgrounds according to ranking
+
+1 - #254F2E
+2 - #3D824C
+3 - #59A96A
+4 - #FFF940
+5 - #FFE544
+6 to 10 - #FFC14D
+11 to 15 - #FFA500
+16 to 20 - #CC0000
+21+ - #800000
