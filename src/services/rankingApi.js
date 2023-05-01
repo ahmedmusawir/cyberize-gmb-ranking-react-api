@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const rankingApiHeaders = {
-  'X-RapidAPI-Key': '01979c6e5bmsh5cd6196dd41058bp1f6b24jsn0bb211c4b924',
+  'X-RapidAPI-Key': '7f4a47cd41msh94196ed5b449e80p161bf6jsnc0b28eef2ddd',
   'X-RapidAPI-Host': 'local-rank-tracker.p.rapidapi.com',
-  // 'X-RapidAPI-Key': '7f4a47cd41msh94196ed5b449e80p161bf6jsnc0b28eef2ddd',
+  // 'X-RapidAPI-Key': '01979c6e5bmsh5cd6196dd41058bp1f6b24jsn0bb211c4b924',
 };
 
 const makeApiCall = (url) => ({
@@ -20,9 +20,10 @@ export const rankingApi = createApi({
     getLocalRanking: builder.query({
       query: ({ placeId, keyword, lat, lng }) => {
         // placeId has to be a business not just an area
+        placeId = 'ChIJoejvAr3Mj4ARtHrbKxtAHXI';
 
         return makeApiCall(
-          `/grid?place_id=${placeId}&query=${keyword}&lat=${lat}&lng=${lng}&grid_size=5&radius=3&zoom=14`
+          `/grid?place_id=${placeId}&query=${keyword}&lat=${lat}&lng=${lng}&grid_size=5&radius=5&zoom=13&radius_units=mi`
         );
       },
     }),

@@ -1,6 +1,5 @@
 import React from 'react';
 import { InfoBox } from '@react-google-maps/api';
-import RankInfo from './RankInfo';
 import rankingData from '../../data/data-5';
 
 const RankInfoBox = ({ data }) => {
@@ -18,7 +17,11 @@ const RankInfoBox = ({ data }) => {
           onLoad={onLoad}
           options={options}
         >
-          <RankInfo location={location} />
+          <div className="w-8 h-8 border-2 border-red-500 rounded-full m-2 relative">
+            <span className="text-lg font-bold absolute left-2">
+              {location.rank}
+            </span>
+          </div>
         </InfoBox>
       ))}
     </>

@@ -4,8 +4,6 @@ import { Audio } from 'react-loader-spinner';
 import './Home.scss';
 import { GoogleMap, LoadScript, Autocomplete } from '@react-google-maps/api';
 import { useLazyGetLocalRankingQuery } from '../services/rankingApi';
-import rankingData from '../data/rankingData.json';
-// import rankingData from '../data/data-5';
 
 const HomePage = () => {
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
@@ -108,98 +106,6 @@ const HomePage = () => {
             </div>
           </Box>
         </Row>
-        <Row
-          twClasses={
-            'prose bg-orange-100 grid grid-auto-fit gap-3 py-2 px-5 -mt-5'
-          }
-        >
-          <Box>
-            <div className="min-w-full">
-              <label className="label">
-                <span className="label-text">
-                  Radius Unit (Mile or Kilometer)
-                </span>
-              </label>
-
-              <select
-                type="text"
-                placeholder="Insert Place ID"
-                className="input input-bordered w-full rounded-none h-8 h-8"
-              >
-                <option value="mi">Miles</option>
-                <option value="km">Kilometers</option>
-              </select>
-            </div>
-          </Box>
-          <Box>
-            <div className="min-w-full">
-              <label className="label">
-                <span className="label-text">Radius</span>
-              </label>
-
-              <select
-                type="text"
-                placeholder="Insert Place ID"
-                className="input input-bordered w-full rounded-none h-8"
-              >
-                <option value="3">3</option>
-                <option value="5">5</option>
-                <option value="7">7</option>
-                <option value="9">9</option>
-                <option value="11">11</option>
-                <option value="13">13</option>
-                <option value="15">15</option>
-              </select>
-            </div>
-          </Box>
-          <Box>
-            <div className="min-w-full">
-              <label className="label">
-                <span className="label-text">Grid Size</span>
-              </label>
-
-              <select
-                type="text"
-                placeholder="Insert Place ID"
-                className="input input-bordered w-full rounded-none h-8"
-              >
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-              </select>
-            </div>
-          </Box>
-          <Box>
-            <div className="min-w-full">
-              <label className="label">
-                <span className="label-text">Zoom</span>
-              </label>
-
-              <select
-                type="text"
-                placeholder="Insert Place ID"
-                className="input input-bordered w-full rounded-none h-8"
-              >
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-              </select>
-            </div>
-          </Box>
-        </Row>
         {isFetching && (
           <Row twClasses={'flex justify-center'}>
             <Audio
@@ -215,12 +121,10 @@ const HomePage = () => {
           <Box twClasses={'min-w-full h-full border bg-blue-300'}>
             <GoogleMap
               mapContainerStyle={{ height: '100%', width: '100%' }}
-              zoom={10}
-              // center={{ lat: coordinates.lat, lng: coordinates.lng }}
-              center={{ lat: 37.341759, lng: -121.938314 }}
+              zoom={12}
+              center={{ lat: coordinates.lat, lng: coordinates.lng }}
             >
-              {/* {data && <RankInfoBox data={data.data.results} />} */}
-              {rankingData && <RankInfoBox data={rankingData[0].results} />}
+              {data && <RankInfoBox data={data.data.results} />}
             </GoogleMap>
           </Box>
         </Row>
