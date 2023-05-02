@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Box, RankInfoBox } from '../components';
 import { Audio } from 'react-loader-spinner';
-import './Home.scss';
 import { GoogleMap, LoadScript, Autocomplete } from '@react-google-maps/api';
 import { useLazyGetLocalRankingQuery } from '../services/rankingApi';
 import rankingData from '../data/rankingData.json';
-// import rankingData from '../data/data-5';
+import './Home.scss';
 
 const HomePage = () => {
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
   const [placeId, setPlaceId] = useState('');
   const [keyword, setKeyword] = useState(null);
+  const [unit, setUnit] = useState('mi');
+  const [radius, setRadius] = useState(3);
+  const [gridSize, setGridSize] = useState(3);
 
   //RIK QUERY TO BRING LOCAL RANKING API DATA
   const [getData, { data, isFetching }] = useLazyGetLocalRankingQuery();
@@ -52,14 +54,13 @@ const HomePage = () => {
   };
 
   const handleApiData = (e) => {
-    console.log('Keyword', keyword);
-    console.log('Lat', coordinates.lat);
-    console.log('Lng', coordinates.lng);
-    console.log('Place ID', placeId);
     const lat = coordinates.lat;
     const lng = coordinates.lng;
 
-    getData({ placeId, keyword, lat, lng });
+    if (!placeId && !keyword)
+      return alert('Place ID and Keyword are required!');
+
+    getData({ placeId, keyword, lat, lng, unit, radius, gridSize });
     console.log('Data:', data);
   };
 
@@ -80,6 +81,7 @@ const HomePage = () => {
                   type="text"
                   placeholder="Insert Place ID"
                   className="input input-bordered w-full rounded-none"
+                  required
                 />
               </Autocomplete>
             </div>
@@ -94,6 +96,7 @@ const HomePage = () => {
                 placeholder="Keyword Search"
                 className="input input-bordered w-full rounded-none"
                 onChange={(e) => setKeyword(e.target.value)}
+                required
               />
             </div>
           </Box>
@@ -108,23 +111,23 @@ const HomePage = () => {
             </div>
           </Box>
         </Row>
+
         <Row
           twClasses={
-            'prose bg-orange-100 grid grid-auto-fit gap-3 py-2 px-5 -mt-5'
+            'prose bg-orange-100 flex flex-wrap justify-start px-5 pb-3 -mt-5'
           }
         >
           <Box>
-            <div className="min-w-full">
+            <div className="w-32 mr-2">
               <label className="label">
-                <span className="label-text">
-                  Radius Unit (Mile or Kilometer)
-                </span>
+                <span className="label-text">Radius Unit</span>
               </label>
 
               <select
                 type="text"
                 placeholder="Insert Place ID"
-                className="input input-bordered w-full rounded-none h-8 h-8"
+                className="input input-bordered w-full rounded-none h-8"
+                onChange={(e) => setUnit(e.target.value)}
               >
                 <option value="mi">Miles</option>
                 <option value="km">Kilometers</option>
@@ -132,7 +135,7 @@ const HomePage = () => {
             </div>
           </Box>
           <Box>
-            <div className="min-w-full">
+            <div className="w-32 mr-2">
               <label className="label">
                 <span className="label-text">Radius</span>
               </label>
@@ -141,6 +144,7 @@ const HomePage = () => {
                 type="text"
                 placeholder="Insert Place ID"
                 className="input input-bordered w-full rounded-none h-8"
+                onChange={(e) => setRadius(e.target.value)}
               >
                 <option value="3">3</option>
                 <option value="5">5</option>
@@ -153,7 +157,7 @@ const HomePage = () => {
             </div>
           </Box>
           <Box>
-            <div className="min-w-full">
+            <div className="w-32 mr-2">
               <label className="label">
                 <span className="label-text">Grid Size</span>
               </label>
@@ -162,6 +166,7 @@ const HomePage = () => {
                 type="text"
                 placeholder="Insert Place ID"
                 className="input input-bordered w-full rounded-none h-8"
+                onChange={(e) => setGridSize(e.target.value)}
               >
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -179,8 +184,8 @@ const HomePage = () => {
               </select>
             </div>
           </Box>
-          <Box>
-            <div className="min-w-full">
+          {/* <Box>
+            <div className="w-32 mr-2">
               <label className="label">
                 <span className="label-text">Zoom</span>
               </label>
@@ -189,6 +194,7 @@ const HomePage = () => {
                 type="text"
                 placeholder="Insert Place ID"
                 className="input input-bordered w-full rounded-none h-8"
+                onChange={(e) => setZoom(e.target.value)}
               >
                 <option value="10">10</option>
                 <option value="11">11</option>
@@ -198,7 +204,7 @@ const HomePage = () => {
                 <option value="15">15</option>
               </select>
             </div>
-          </Box>
+          </Box> */}
         </Row>
         {isFetching && (
           <Row twClasses={'flex justify-center'}>

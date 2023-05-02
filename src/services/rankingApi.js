@@ -18,12 +18,12 @@ export const rankingApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getLocalRanking: builder.query({
-      query: ({ placeId, keyword, lat, lng }) => {
+      query: ({ placeId, keyword, lat, lng, unit, radius, gridSize }) => {
         // placeId has to be a business not just an area
         placeId = 'ChIJoejvAr3Mj4ARtHrbKxtAHXI';
 
         return makeApiCall(
-          `/grid?place_id=${placeId}&query=${keyword}&lat=${lat}&lng=${lng}&grid_size=5&radius=5&zoom=13&radius_units=mi`
+          `/grid?place_id=${placeId}&query=${keyword}&lat=${lat}&lng=${lng}&grid_size=${gridSize}&radius=${radius}&radius_units=${unit}`
         );
       },
     }),
